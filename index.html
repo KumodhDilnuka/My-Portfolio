@@ -3,61 +3,155 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes, maximum-scale=5.0, minimum-scale=1.0">
-    <meta name="description" content="Kumodh Dilnuka - Information Technology Undergraduate at SLIIT. Full-stack developer specializing in MERN stack, database management, and mobile app development.">
-    <meta name="keywords" content="Kumodh Dilnuka, IT Student, SLIIT, Full Stack Developer, MERN Stack, Web Development, Mobile Apps">
+    
+    <!-- Primary Meta Tags -->
+    <title>Kumodh Dilnuka - Full-Stack Developer & IT Student | Portfolio</title>
+    <meta name="title" content="Kumodh Dilnuka - Full-Stack Developer & IT Student | Portfolio">
+    <meta name="description" content="Kumodh Dilnuka - Information Technology Undergraduate at SLIIT. Full-stack developer specializing in MERN stack, database management, and mobile app development. View my projects and skills.">
+    <meta name="keywords" content="Kumodh Dilnuka, Full Stack Developer, MERN Stack, React Developer, Node.js, JavaScript, Python, Java, PHP, Web Development, Mobile Apps, SLIIT, Sri Lanka, IT Student, Portfolio, Software Developer, Database Management">
     <meta name="author" content="Kumodh Dilnuka">
-    <title>Kumodh Dilnuka - IT Student Portfolio</title>
+    <meta name="robots" content="index, follow">
+    <meta name="theme-color" content="#667eea">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://kumodhdilnuka.github.io/My-Portfolio/">
+    <meta property="og:title" content="Kumodh Dilnuka - Full-Stack Developer & IT Student">
+    <meta property="og:description" content="Information Technology Undergraduate at SLIIT. Full-stack developer specializing in MERN stack, database management, and mobile app development.">
+    <meta property="og:image" content="https://kumodhdilnuka.github.io/My-Portfolio/images/Mypicture.jpg">
+    <meta property="og:site_name" content="Kumodh Dilnuka Portfolio">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://kumodhdilnuka.github.io/My-Portfolio/">
+    <meta property="twitter:title" content="Kumodh Dilnuka - Full-Stack Developer & IT Student">
+    <meta property="twitter:description" content="Information Technology Undergraduate at SLIIT. Full-stack developer specializing in MERN stack, database management, and mobile app development.">
+    <meta property="twitter:image" content="https://kumodhdilnuka.github.io/My-Portfolio/images/Mypicture.jpg">
+    <meta property="twitter:creator" content="@kumodhdilnuka">
+    
+    <!-- Favicon and PWA -->
+    <link rel="icon" type="image/x-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💻</text></svg>">
+    <link rel="apple-touch-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💻</text></svg>">
+    <link rel="manifest" href="manifest.json">
+    
+    <!-- Preconnect to external domains for better performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    
+    <!-- Stylesheets -->
     <link rel="stylesheet" href="style.css">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet" media="print" onload="this.media='all'">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Kumodh Dilnuka",
+      "jobTitle": "Full-Stack Developer & IT Student",
+      "description": "Information Technology Undergraduate at SLIIT. Full-stack developer specializing in MERN stack, database management, and mobile app development.",
+      "url": "https://kumodhdilnuka.github.io/My-Portfolio/",
+      "image": "https://kumodhdilnuka.github.io/My-Portfolio/images/Mypicture.jpg",
+      "sameAs": [
+        "https://github.com/KumodhDilnuka",
+        "https://www.linkedin.com/in/kumodh-dilnuka-02b318370",
+        "https://x.com/kumodhdilnuka",
+        "https://www.instagram.com/kumodhdilnuka"
+      ],
+      "alumniOf": {
+        "@type": "EducationalOrganization",
+        "name": "Sri Lanka Institute of Information Technology (SLIIT)",
+        "location": "Malabe, Sri Lanka"
+      },
+      "knowsAbout": [
+        "JavaScript", "React.js", "Node.js", "MongoDB", "Express.js",
+        "Java", "Python", "PHP", "C++", "MySQL", "Git", "Web Development",
+        "Mobile App Development", "Database Management", "Full-Stack Development"
+      ]
+    }
+    </script>
 </head>
 <body>
+    <!-- Loading Spinner -->
+    <div class="loading-spinner" id="loading-spinner">
+        <div class="spinner"></div>
+    </div>
+    
+    <!-- Skip Link for Accessibility -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    
     <!-- Navigation -->
-    <nav class="navbar">
+    <nav class="navbar" role="navigation" aria-label="Main navigation">
         <div class="nav-container">
             <div class="nav-logo">
                 <h2>Kumodh Dilnuka</h2>
             </div>
-            <div class="nav-menu" id="nav-menu">
-                <a href="#home" class="nav-link">Home</a>
-                <a href="#about" class="nav-link">About</a>
-                <a href="#skills" class="nav-link">Skills</a>
-                <a href="#projects" class="nav-link">Projects</a>
-                <a href="#contact" class="nav-link">Contact</a>
+            <div class="nav-menu" id="nav-menu" role="menubar">
+                <a href="#home" class="nav-link" role="menuitem" aria-label="Go to Home section">Home</a>
+                <a href="#about" class="nav-link" role="menuitem" aria-label="Go to About section">About</a>
+                <a href="#skills" class="nav-link" role="menuitem" aria-label="Go to Skills section">Skills</a>
+                <a href="#projects" class="nav-link" role="menuitem" aria-label="Go to Projects section">Projects</a>
+                <a href="#contact" class="nav-link" role="menuitem" aria-label="Go to Contact section">Contact</a>
+                <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode" title="Toggle dark mode">
+                    <i class="fas fa-lightbulb bulb-icon" aria-hidden="true"></i>
+                    <div class="bulb-filament"></div>
+                    <div class="bulb-base"></div>
+                </button>
             </div>
-            <div class="nav-toggle" id="nav-toggle">
-                <span class="bar"></span>
-                <span class="bar"></span>
-                <span class="bar"></span>
-            </div>
+            <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="nav-menu">
+                <span class="bar" aria-hidden="true"></span>
+                <span class="bar" aria-hidden="true"></span>
+                <span class="bar" aria-hidden="true"></span>
+            </button>
         </div>
     </nav>
 
     <!-- Hero Section -->
-    <section id="home" class="hero">
-        <div class="hero-container">
-            <div class="hero-content">
-                <h1>Hi, I'm <span class="highlight">Kumodh Dilnuka</span></h1>
-                <h2 class="typing-text">Information Technology Undergraduate</h2>
-                <p>Aspiring IT expert with a strong basis in information generation and a keen interest in solving practical problems through programming, database management, and software development.</p>
-                <div class="hero-buttons">
-                    <a href="#projects" class="btn btn-primary">View My Work</a>
-                    <a href="#contact" class="btn btn-secondary">Get In Touch</a>
+    <main id="main-content">
+        <section id="home" class="hero" aria-label="Introduction">
+            <div class="hero-container">
+                <div class="hero-content">
+                    <h1>Hi, I'm <span class="highlight">Kumodh Dilnuka</span></h1>
+                    <h2 class="typing-text" aria-live="polite">Information Technology Undergraduate</h2>
+                    <p>Passionate Full-Stack Developer and IT undergraduate at SLIIT with expertise in MERN stack development, database management, and modern software solutions. I create innovative applications that solve real-world problems through clean code and cutting-edge technologies.</p>
+                    <div class="hero-buttons">
+                        <a href="#projects" class="btn btn-primary" aria-label="View my portfolio projects">
+                            <i class="fas fa-code" aria-hidden="true"></i>
+                            View My Work
+                        </a>
+                        <a href="#contact" class="btn btn-secondary" aria-label="Contact me for opportunities">
+                            <i class="fas fa-envelope" aria-hidden="true"></i>
+                            Get In Touch
+                        </a>
+                    </div>
+                    <div class="social-links" role="list" aria-label="Social media links">
+                        <a href="https://github.com/KumodhDilnuka" target="_blank" rel="noopener noreferrer" aria-label="Visit my GitHub profile" role="listitem">
+                            <i class="fab fa-github" aria-hidden="true"></i>
+                            <span class="sr-only">GitHub</span>
+                        </a>
+                        <a href="https://www.linkedin.com/in/kumodh-dilnuka-02b318370" target="_blank" rel="noopener noreferrer" aria-label="Connect with me on LinkedIn" role="listitem">
+                            <i class="fab fa-linkedin" aria-hidden="true"></i>
+                            <span class="sr-only">LinkedIn</span>
+                        </a>
+                        <a href="https://x.com/kumodhdilnuka" target="_blank" rel="noopener noreferrer" aria-label="Follow me on Twitter/X" role="listitem">
+                            <i class="fab fa-twitter" aria-hidden="true"></i>
+                            <span class="sr-only">Twitter</span>
+                        </a>
+                        <a href="https://www.instagram.com/kumodhdilnuka" target="_blank" rel="noopener noreferrer" aria-label="Follow me on Instagram" role="listitem">
+                            <i class="fab fa-instagram" aria-hidden="true"></i>
+                            <span class="sr-only">Instagram</span>
+                        </a>
+                    </div>
                 </div>
-                <div class="social-links">
-                    <a href="https://github.com/KumodhDilnuka" target="_blank"><i class="fab fa-github"></i></a>
-                    <a href="https://www.linkedin.com/in/kumodh-dilnuka-02b318370?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app" target="_blank"><i class="fab fa-linkedin"></i></a>
-                    <a href="https://x.com/kumodhdilnuka?s=21&t=6DX2gtKhmPlgAUJoQaSv1g" target="_blank"><i class="fab fa-twitter"></i></a>
-                    <a href="https://www.instagram.com/kumodhdilnuka?igsh=eXk3eGQ2a2lyNWZh&utm_source=qr" target="_blank"><i class="fab fa-instagram"></i></a>
+                <div class="hero-image">
+                    <div class="image-placeholder">
+                        <img src="images/Mypicture.jpg" alt="Kumodh Dilnuka - Professional headshot of a young software developer" loading="eager" decoding="async" width="300" height="300">
+                    </div>
                 </div>
             </div>
-            <div class="hero-image">
-                <div class="image-placeholder">
-                    <img src="images/Mypicture.jpg" alt="Kumodh Dilnuka - Profile Picture">
-                </div>
-            </div>
-        </div>
-    </section>
+        </section>
 
     <!-- About Section -->
     <section id="about" class="about">
@@ -69,15 +163,18 @@
                     <p>I'm currently pursuing my BSc (Hons) in Information Technology at Sri Lanka Institute of Information Technology (SLIIT), Malabe. My journey in IT has been driven by curiosity and a desire to solve real-world problems through technology.</p>
                     <p>I'm proficient in programming, database management, and software development, with hands-on experience in constructing efficient structures and applications. I'm obsessed with exploring new technologies, improving device performance, and contributing to progressive IT solutions that address real-global needs.</p>
                     <div class="about-stats">
-                        <div class="stat">
+                        <div class="stat slide-in-up">
+                            <i class="fas fa-graduation-cap stat-icon"></i>
                             <h4>2+</h4>
                             <p>Years of Study</p>
                         </div>
-                        <div class="stat">
+                        <div class="stat slide-in-up">
+                            <i class="fas fa-project-diagram stat-icon"></i>
                             <h4>6+</h4>
                             <p>Projects Completed</p>
                         </div>
-                        <div class="stat">
+                        <div class="stat slide-in-up">
+                            <i class="fas fa-code stat-icon"></i>
                             <h4>8+</h4>
                             <p>Programming Languages</p>
                         </div>
@@ -95,19 +192,19 @@
                 <div class="skill-category">
                     <h3><i class="fas fa-code"></i> Programming Languages</h3>
                     <div class="skill-items">
-                        <div class="skill-item">
+                        <div class="skill-item stagger-item">
                             <span>JavaScript</span>
                             <div class="skill-bar">
                                 <div class="skill-progress" data-width="85%"></div>
                             </div>
                         </div>
-                        <div class="skill-item">
+                        <div class="skill-item stagger-item">
                             <span>C/C++</span>
                             <div class="skill-bar">
                                 <div class="skill-progress" data-width="85%"></div>
                             </div>
                         </div>
-                        <div class="skill-item">
+                        <div class="skill-item stagger-item">
                             <span>Java</span>
                             <div class="skill-bar">
                                 <div class="skill-progress" data-width="80%"></div>
@@ -163,40 +260,59 @@
                         </div>
                         <div class="skill-item">
                             <span>Tailwind CSS</span>
-                            <div class="skill-bar">
+                            <div class="skill-bar" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" aria-label="Tailwind CSS skill level: 80%">
                                 <div class="skill-progress" data-width="80%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <span>Bootstrap</span>
+                            <div class="skill-bar" role="progressbar" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100" aria-label="Bootstrap skill level: 85%">
+                                <div class="skill-progress" data-width="85%"></div>
                             </div>
                         </div>
                     </div>
                 </div>
 
                 <div class="skill-category">
-                    <h3><i class="fas fa-database"></i> Data & Tools</h3>
+                    <h3><i class="fas fa-database"></i> Database & Backend</h3>
                     <div class="skill-items">
                         <div class="skill-item">
                             <span>SQL/MySQL</span>
-                            <div class="skill-bar">
+                            <div class="skill-bar" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100" aria-label="SQL/MySQL skill level: 90%">
                                 <div class="skill-progress" data-width="90%"></div>
                             </div>
                         </div>
                         <div class="skill-item">
                             <span>MongoDB</span>
-                            <div class="skill-bar">
+                            <div class="skill-bar" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" aria-label="MongoDB skill level: 75%">
                                 <div class="skill-progress" data-width="75%"></div>
                             </div>
                         </div>
                         <div class="skill-item">
+                            <span>SQLite</span>
+                            <div class="skill-bar" role="progressbar" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100" aria-label="SQLite skill level: 85%">
+                                <div class="skill-progress" data-width="85%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <h3><i class="fas fa-tools"></i> Development Tools</h3>
+                    <div class="skill-items">
+                        <div class="skill-item">
                             <span>Git/GitHub</span>
-                            <div class="skill-bar">
+                            <div class="skill-bar" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100" aria-label="Git/GitHub skill level: 90%">
                                 <div class="skill-progress" data-width="90%"></div>
                             </div>
                         </div>
                         <div class="skill-item">
                             <span>VS Code</span>
-                            <div class="skill-bar">
+                            <div class="skill-bar" role="progressbar" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100" aria-label="VS Code skill level: 95%">
                                 <div class="skill-progress" data-width="95%"></div>
                             </div>
                         </div>
+
                         <div class="skill-item">
                             <span>Android Studio</span>
                             <div class="skill-bar">
@@ -248,7 +364,6 @@
                         </div>
                         <div class="project-links">
                             <a href="https://github.com/KumodhDilnuka/Y2S2Project-CoirTrack-Final-main" target="_blank"><i class="fab fa-github"></i> Code</a>
-                            <a href="#" target="_blank"><i class="fas fa-external-link-alt"></i> Live Demo</a>
                         </div>
                     </div>
                 </div>
@@ -268,7 +383,6 @@
                         </div>
                         <div class="project-links">
                             <a href="https://github.com/KumodhDilnuka/FinanceTracker" target="_blank"><i class="fab fa-github"></i> Code</a>
-                            <a href="#" target="_blank"><i class="fas fa-download"></i> Download APK</a>
                         </div>
                     </div>
                 </div>
@@ -381,6 +495,7 @@
             </div>
         </div>
     </section>
+    </main>
 
     <!-- Footer -->
     <footer class="footer">
