@@ -2,7 +2,8 @@
   "name": "Kumodh Dilnuka - Portfolio",
   "short_name": "KD Portfolio",
   "description": "Full-Stack Developer & IT Student Portfolio",
-  "start_url": "/",
+  "start_url": "./",
+  "scope": "./",
   "display": "standalone",
   "background_color": "#f8f9fa",
   "theme_color": "#667eea",
@@ -26,7 +27,7 @@
   ],
   "screenshots": [
     {
-      "src": "images/Mypicture.jpg",
+      "src": "./images/Mypicture.jpg",
       "sizes": "1280x720",
       "type": "image/jpeg",
       "form_factor": "wide"

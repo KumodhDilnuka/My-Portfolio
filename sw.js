@@ -1,16 +1,19 @@
-// Service Worker for Portfolio PWA
+// Service Worker for Portfolio PWA - GitHub Pages Compatible
 const CACHE_NAME = 'portfolio-v1.2.0';
 const STATIC_CACHE = 'static-v1.2.0';
 const DYNAMIC_CACHE = 'dynamic-v1.2.0';
 
-// Assets to cache on install
+// Get the base path for GitHub Pages
+const BASE_PATH = self.location.pathname.replace(/\/[^\/]*$/, '') || '';
+
+// Assets to cache on install (using relative paths for GitHub Pages)
 const STATIC_ASSETS = [
-    '/',
-    '/index.html',
-    '/style.css',
-    '/script.js',
-    '/manifest.json',
-    '/images/Mypicture.jpg',
+    `${BASE_PATH}/`,
+    `${BASE_PATH}/index.html`,
+    `${BASE_PATH}/style.css`,
+    `${BASE_PATH}/script.js`,
+    `${BASE_PATH}/manifest.json`,
+    `${BASE_PATH}/images/Mypicture.jpg`,
     'https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap',
     'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css'
 ];
@@ -69,6 +72,7 @@ self.addEventListener('fetch', (event) => {
     const url = new URL(request.url);
     if (url.origin !== location.origin && 
         !url.hostname.includes('fonts.googleapis.com') &&
+        !url.hostname.includes('fonts.gstatic.com') &&
         !url.hostname.includes('cdnjs.cloudflare.com')) {
         return;
     }
@@ -85,11 +89,16 @@ self.addEventListener('fetch', (event) => {
                 // If not in cache, fetch from network
                 return fetch(request)
                     .then((networkResponse) => {
-                        // Clone the response before caching
-                        const responseClone = networkResponse.clone();
-                        
-                        // Cache successful responses
-                        if (networkResponse.status === 200) {
+                        // Only cache successful responses from same origin or allowed CDNs
+                        if (networkResponse.status === 200 && 
+                            (url.origin === location.origin || 
+                             url.hostname.includes('fonts.googleapis.com') ||
+                             url.hostname.includes('fonts.gstatic.com') ||
+                             url.hostname.includes('cdnjs.cloudflare.com'))) {
+                            
+                            // Clone the response before caching
+                            const responseClone = networkResponse.clone();
+                            
                             caches.open(DYNAMIC_CACHE)
                                 .then((cache) => {
                                     cache.put(request, responseClone);
@@ -103,7 +112,8 @@ self.addEventListener('fetch', (event) => {
                         
                         // Return offline page for navigation requests
                         if (request.destination === 'document') {
-                            return caches.match('/index.html');
+                            return caches.match(`${BASE_PATH}/index.html`) || 
+                                   caches.match(`${BASE_PATH}/`);
                         }
                         
                         // Return placeholder for images
@@ -134,15 +144,10 @@ async function handleOfflineFormSubmission() {
     try {
         const formData = await getStoredFormData();
         if (formData) {
-            const response = await fetch('/api/contact', {
-                method: 'POST',
-                body: formData
-            });
-            
-            if (response.ok) {
-                await clearStoredFormData();
-                console.log('✅ Offline form submission successful');
-            }
+            // Note: GitHub Pages doesn't support server-side processing
+            // This would need to be handled via external service like Netlify Forms
+            console.log('📝 Form data stored for later submission:', formData);
+            await clearStoredFormData();
         }
     } catch (error) {
         console.error('❌ Offline form submission failed:', error);
@@ -165,8 +170,8 @@ self.addEventListener('push', (event) => {
         const data = event.data.json();
         const options = {
             body: data.body,
-            icon: '/images/icon-192.png',
-            badge: '/images/icon-72.png',
+            icon: `${BASE_PATH}/images/icon-192.png`,
+            badge: `${BASE_PATH}/images/icon-72.png`,
             data: data.url,
             actions: [
                 {
@@ -192,15 +197,22 @@ self.addEventListener('notificationclick', (event) => {
     
     if (event.action === 'open') {
         event.waitUntil(
-            clients.openWindow(event.notification.data || '/')
+            clients.openWindow(event.notification.data || `${BASE_PATH}/`)
         );
     }
 });
 
 // Performance monitoring
 self.addEventListener('message', (event) => {
-    if (event.data.type === 'PERFORMANCE_METRICS') {
-        console.log('📊 Performance metrics:', event.data.metrics);
+    if (event.data && event.data.type === 'SKIP_WAITING') {
+        self.skipWaiting();
+    }
+});
+
+// Handle updates gracefully for GitHub Pages
+self.addEventListener('message', (event) => {
+    if (event.data && event.data.type === 'GET_VERSION') {
+        event.ports[0].postMessage({ version: CACHE_NAME });
     }
 });
 

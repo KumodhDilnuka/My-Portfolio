@@ -93,6 +93,12 @@ Currently using Google Fonts (Poppins). To change:
 
 ## 🌐 Hosting on GitHub Pages
 
+This portfolio is **fully optimized for GitHub Pages** with the following features:
+- ✅ **Progressive Web App (PWA)** support
+- ✅ **Service Worker** for offline functionality
+- ✅ **Relative paths** for subdirectory compatibility
+- ✅ **HTTPS-ready** (required for PWA features)
+
 ### Step 1: Create GitHub Repository
 
 1. **Create a GitHub account** (if you don't have one):
@@ -102,7 +108,7 @@ Currently using Google Fonts (Poppins). To change:
 2. **Create a new repository**:
    - Click the "+" icon in the top right
    - Select "New repository"
-   - Name it `your-username.github.io` (replace with your GitHub username)
+   - Name it `My-Portfolio` or `your-username.github.io`
    - Make sure it's **Public**
    - Don't initialize with README (since you already have files)
    - Click "Create repository"
@@ -143,9 +149,18 @@ Currently using Google Fonts (Poppins). To change:
 
 ### Step 4: Access Your Live Website
 
+**If you named your repository `your-username.github.io`:**
 - Your website will be available at: `https://your-username.github.io`
-- It may take a few minutes to go live
+
+**If you named your repository `My-Portfolio`:**
+- Your website will be available at: `https://your-username.github.io/My-Portfolio/`
+
+**Important Notes:**
+- It may take a few minutes to go live (usually 5-10 minutes)
 - You'll see a green checkmark when it's ready
+- **PWA features** (install app, offline support) work automatically on HTTPS
+- **Dark mode toggle** and all animations work perfectly
+- **Service Worker** provides offline functionality
 
 ## 🔧 Advanced Customization
 

@@ -617,15 +617,39 @@ function setupLazyLoading() {
     });
 }
 
-// Service Worker Registration for PWA
+// Service Worker Registration for PWA - GitHub Pages Compatible
 async function registerServiceWorker() {
-    if ('serviceWorker' in navigator) {
+    if ('serviceWorker' in navigator && 'https:' === location.protocol) {
         try {
-            const registration = await navigator.serviceWorker.register('/sw.js');
+            // Get the base path for GitHub Pages compatibility
+            const basePath = window.location.pathname.replace(/\/[^\/]*$/, '') || '';
+            const swPath = `${basePath}/sw.js`;
+            
+            const registration = await navigator.serviceWorker.register(swPath, {
+                scope: `${basePath}/`
+            });
+            
             console.log('🔧 Service Worker registered successfully:', registration);
+            
+            // Handle service worker updates
+            registration.addEventListener('updatefound', () => {
+                const newWorker = registration.installing;
+                newWorker.addEventListener('statechange', () => {
+                    if (newWorker.state === 'installed' && navigator.serviceWorker.controller) {
+                        // New service worker available
+                        console.log('🔄 New service worker available');
+                        if (confirm('New version available! Reload to update?')) {
+                            window.location.reload();
+                        }
+                    }
+                });
+            });
+            
         } catch (error) {
             console.log('❌ Service Worker registration failed:', error);
         }
+    } else if ('http:' === location.protocol) {
+        console.log('⚠️ Service Worker requires HTTPS. Not registering on HTTP.');
     }
 }
 
